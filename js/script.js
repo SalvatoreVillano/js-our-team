@@ -1,3 +1,5 @@
+const divHTML = document.getElementById("team")
+
 const team = [
             {
                 nome: 'Wayne Barnett',
@@ -31,7 +33,16 @@ const team = [
             }
     ]
 
+
     for(let key in team){
         console.log(team[key]);
            }
 
+
+    function generaMembriStringa(array){
+        let membriTeam = document.getElementById('team')
+        for (let i = 0; i < array.length; i++){
+            membriTeam.innerHTML += `Nome: ${array[i].nome} <br> Ruolo: ${array[i].ruolo} <br>  Foto: ${array[i].foto} <br><br>`
+        }
+    }
+    generaMembriStringa(team);
