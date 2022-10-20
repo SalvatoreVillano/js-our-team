@@ -38,16 +38,29 @@ const team = [
         console.log(team[key]);
            }
 
-
     function generaMembriStringa(array){
         let membriTeam = document.getElementById('team')
         for (let i = 0; i < array.length; i++){
+            let col = document.createElement('div')
+            col.classList.add('col')
+            let card = document.createElement('div')
+            card.classList.add('card', 'mb-5', 'border-3')
             let img = document.createElement('img')
             img.setAttribute('src', `./img/${array[i].foto}` )
-            console.log(img);
-            membriTeam.innerHTML += `<br> Nome: ${array[i].nome} <br> Ruolo: ${array[i].ruolo} <br>  Foto:  <br><br>`
-            membriTeam.append(img)
-
+            let cardInfo = document.createElement('div')
+            let cardNome = document.createElement('h4')
+            cardNome.innerHTML = array[i].nome
+            cardNome.classList.add('fs-2', 'text-center', 'text-danger')
+            let cardRuolo = document.createElement('p')
+            cardRuolo.innerHTML = array[i].ruolo
+            cardRuolo.classList.add('fs-4', 'text-center', 'text-success')
+    
+            membriTeam.append(col)
+            col.append(card)
+            card.append(img)
+            card.append(cardInfo)
+            cardInfo.append(cardNome)
+            cardInfo.append(cardRuolo)
         }
     }
     generaMembriStringa(team);
