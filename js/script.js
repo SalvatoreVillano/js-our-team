@@ -42,7 +42,12 @@ const team = [
     function generaMembriStringa(array){
         let membriTeam = document.getElementById('team')
         for (let i = 0; i < array.length; i++){
-            membriTeam.innerHTML += `Nome: ${array[i].nome} <br> Ruolo: ${array[i].ruolo} <br>  Foto: ${array[i].foto} <br><br>`
+            let img = document.createElement('img')
+            img.setAttribute('src', `./img/${array[i].foto}` )
+            console.log(img);
+            membriTeam.innerHTML += `<br> Nome: ${array[i].nome} <br> Ruolo: ${array[i].ruolo} <br>  Foto:  <br><br>`
+            membriTeam.append(img)
+
         }
     }
     generaMembriStringa(team);
